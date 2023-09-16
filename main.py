@@ -83,7 +83,7 @@ def _prefix_from_target(target):
 
 def read(target, output=None):
     try:
-        script = scr.normalized_from(target)
+        script = scr.script_from(target)
         if output is None:
             prefix = _prefix_from_target(target)
             output = tempfile.mkstemp(".mp3", prefix=prefix, dir=".")[1]

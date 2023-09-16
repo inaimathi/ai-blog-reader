@@ -69,7 +69,7 @@ def script_from_substack(post_url):
     resp = requests.get(url).json()
     return [resp["title"], resp["subtitle"]] + script_from_html(resp["body_html"])
 
-def script_from_(thing):
+def _script_from_(thing):
     if thing.startswith("http"):
         if "substack" in thing:
             return script_from_substack(thing)
@@ -120,5 +120,5 @@ def normalize_script(script):
     merged = _merge_silence(sentences)
     return list(merged)
 
-def normalized_from(target):
-    return normalize_script(script_from_(target))
+def script_from(target):
+    return normalize_script(_script_from_(target))
