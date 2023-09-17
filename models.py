@@ -14,8 +14,8 @@ def read_text(text, voice="mol", custom_voice=None):
            "voice_b": "disabled",
            "voice_c": "disabled"}
     if custom_voice is not None:
-        final_inp = {**inp, **{"voice_a": "custom_voice", "custom_voice": voice_file}}
         with open(custom_voice, "rb") as voice_file:
+            final_inp = {**inp, **{"voice_a": "custom_voice", "custom_voice": voice_file}}
             return replicate.run(model, input=final_inp)
     else:
         return replicate.run(model, input=inp)
